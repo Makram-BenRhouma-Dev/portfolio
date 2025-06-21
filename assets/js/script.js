@@ -115,24 +115,60 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 
 
-// contact form variables
+// Contact form functionality
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field
+// Check if all form fields are filled
+const isValidForm = function () {
+  for (let i = 0; i < formInputs.length; i++) {
+    if (formInputs[i].value.trim() === "") return false;
+  }
+  return true;
+}
+
+// Enable/disable form button based on input validation
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
+    if (isValidForm()) {
       formBtn.removeAttribute("disabled");
     } else {
       formBtn.setAttribute("disabled", "");
     }
-
   });
 }
+
+// Handle form submission
+form.addEventListener('submit', function(e) {
+  // Show loading state
+  formBtn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon><span>Sending...</span>';
+  formBtn.setAttribute("disabled", "");
+  
+  // The form will be submitted to Formspree automatically
+  // After submission, Formspree will redirect to a thank you page
+});
+
+// Handle successful form submission (when user returns from Formspree)
+window.addEventListener('load', function() {
+  // Check if there's a success parameter in URL (Formspree adds this)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    // Show success message
+    if (formBtn) {
+      formBtn.innerHTML = '<ion-icon name="checkmark-outline"></ion-icon><span>Message Sent!</span>';
+      formBtn.style.backgroundColor = '#4CAF50';
+      
+      // Reset after 3 seconds
+      setTimeout(() => {
+        formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Send Message</span>';
+        formBtn.style.backgroundColor = '';
+        form.reset();
+        formBtn.setAttribute("disabled", "");
+      }, 3000);
+    }
+  }
+});
 
 
 
