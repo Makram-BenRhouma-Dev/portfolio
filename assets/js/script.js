@@ -1,11 +1,7 @@
 'use strict';
 
-
-
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
@@ -13,8 +9,6 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
@@ -52,8 +46,6 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
-
-
 
 // custom select variables
 const select = document.querySelector("[data-select]");
@@ -113,64 +105,24 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 }
 
-
-
-// Contact form functionality
+// contact form variables
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// Check if all form fields are filled
-const isValidForm = function () {
-  for (let i = 0; i < formInputs.length; i++) {
-    if (formInputs[i].value.trim() === "") return false;
-  }
-  return true;
-}
-
-// Enable/disable form button based on input validation
+// add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
-    if (isValidForm()) {
+
+    // check form validation
+    if (form.checkValidity()) {
       formBtn.removeAttribute("disabled");
     } else {
       formBtn.setAttribute("disabled", "");
     }
+
   });
 }
-
-// Handle form submission
-form.addEventListener('submit', function(e) {
-  // Show loading state
-  formBtn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon><span>Sending...</span>';
-  formBtn.setAttribute("disabled", "");
-  
-  // The form will be submitted to Formspree automatically
-  // After submission, Formspree will redirect to a thank you page
-});
-
-// Handle successful form submission (when user returns from Formspree)
-window.addEventListener('load', function() {
-  // Check if there's a success parameter in URL (Formspree adds this)
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('success') === 'true') {
-    // Show success message
-    if (formBtn) {
-      formBtn.innerHTML = '<ion-icon name="checkmark-outline"></ion-icon><span>Message Sent!</span>';
-      formBtn.style.backgroundColor = '#4CAF50';
-      
-      // Reset after 3 seconds
-      setTimeout(() => {
-        formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Send Message</span>';
-        formBtn.style.backgroundColor = '';
-        form.reset();
-        formBtn.setAttribute("disabled", "");
-      }, 3000);
-    }
-  }
-});
-
-
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
@@ -193,3 +145,154 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// BLOG MODAL FUNCTIONALITY - NEW CODE
+console.log('Initializing blog modal...');
+
+// Blog modal variables
+const blogModalContainer = document.querySelector("[data-blog-modal-container]");
+const blogModalCloseBtn = document.querySelector("[data-blog-modal-close-btn]");
+const blogOverlay = document.querySelector("[data-blog-overlay]");
+
+// Blog modal elements
+const blogModalTitle = document.querySelector("[data-blog-modal-title]");
+const blogModalDate = document.querySelector("[data-blog-modal-date]");
+const blogModalImg = document.querySelector("[data-blog-modal-img]");
+const blogModalText = document.querySelector("[data-blog-modal-text]");
+const blogModalCategory = document.querySelector("[data-blog-modal-category]");
+
+// Blog items
+const blogItems = document.querySelectorAll("[data-blog-item]");
+
+console.log('Blog items found:', blogItems.length);
+console.log('Blog modal container:', blogModalContainer);
+
+// Blog modal toggle function
+const blogModalFunc = function () {
+  console.log('Blog modal toggle called');
+  if (blogModalContainer && blogOverlay) {
+    blogModalContainer.classList.toggle("active");
+    blogOverlay.classList.toggle("active");
+    document.body.classList.toggle('modal-open');
+  }
+}
+
+// Add click event to all blog items
+if (blogItems.length > 0 && blogModalContainer) {
+  for (let i = 0; i < blogItems.length; i++) {
+    blogItems[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      console.log('Blog item clicked:', i);
+      
+      try {
+        // Get blog data from clicked item
+        const blogTitle = this.querySelector("[data-blog-title]");
+        const blogDate = this.querySelector("[data-blog-date]");
+        const blogImg = this.querySelector("[data-blog-img]");
+        const blogContent = this.querySelector("[data-blog-content]");
+        const blogCategory = this.querySelector(".blog-category");
+        
+        console.log('Blog title element:', blogTitle);
+        console.log('Blog content element:', blogContent);
+        
+        if (blogTitle && blogModalTitle) {
+          blogModalTitle.innerText = blogTitle.innerText;
+        }
+        
+        if (blogDate && blogModalDate) {
+          blogModalDate.innerText = blogDate.innerText;
+          const timeElement = this.querySelector("time");
+          if (timeElement) {
+            blogModalDate.setAttribute('datetime', timeElement.getAttribute('datetime'));
+          }
+        }
+        
+        if (blogImg && blogModalImg) {
+          blogModalImg.src = blogImg.src;
+          blogModalImg.alt = blogImg.alt;
+        }
+        
+        if (blogContent && blogModalText) {
+          blogModalText.innerHTML = blogContent.innerHTML;
+        }
+        
+        if (blogCategory && blogModalCategory) {
+          blogModalCategory.innerText = blogCategory.innerText;
+          const categoryClasses = blogCategory.className.split(' ');
+          const categoryType = categoryClasses.find(cls => cls !== 'blog-category');
+          if (categoryType) {
+            blogModalCategory.className = `modal-tag ${categoryType}`;
+          }
+        }
+        
+        // Update share buttons
+        updateShareButtons(blogTitle ? blogTitle.innerText : 'Blog Post', window.location.href);
+        
+        // Show modal
+        blogModalFunc();
+        
+        // Scroll to top of modal
+        setTimeout(() => {
+          if (blogModalContainer) {
+            blogModalContainer.scrollTop = 0;
+          }
+        }, 100);
+        
+      } catch (error) {
+        console.error('Error opening blog modal:', error);
+      }
+    });
+  }
+} else {
+  console.error('Blog items or modal container not found');
+}
+
+// Close modal events
+if (blogModalCloseBtn) {
+  blogModalCloseBtn.addEventListener("click", blogModalFunc);
+}
+
+if (blogOverlay) {
+  blogOverlay.addEventListener("click", blogModalFunc);
+}
+
+// Close modal with Escape key
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape" && blogModalContainer && blogModalContainer.classList.contains("active")) {
+    blogModalFunc();
+  }
+});
+
+// Update share buttons function
+function updateShareButtons(title, url) {
+  const linkedinBtn = document.querySelector("[data-share-linkedin]");
+  const twitterBtn = document.querySelector("[data-share-twitter]");
+  const facebookBtn = document.querySelector("[data-share-facebook]");
+  
+  if (linkedinBtn || twitterBtn || facebookBtn) {
+    const encodedTitle = encodeURIComponent(title);
+    const encodedUrl = encodeURIComponent(url);
+    
+    if (linkedinBtn) {
+      linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+    }
+    if (twitterBtn) {
+      twitterBtn.href = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+    }
+    if (facebookBtn) {
+      facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+    }
+  }
+}
+
+// Add CSS for body scroll prevention
+const style = document.createElement('style');
+style.textContent = `
+  .modal-open {
+    overflow: hidden !important;
+    height: 100vh;
+  }
+`;
+document.head.appendChild(style);
+
+console.log('Blog modal initialization complete');

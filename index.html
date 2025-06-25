@@ -312,10 +312,10 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Nour Mejri" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/avatar-2.png" alt="Eya Bennaser" width="60" data-testimonials-avatar>
                 </figure>
 
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Nour Mejri – Project Clients</h4>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Eya Bennaser – administrateur système</h4>
 
                 <div class="testimonials-text" data-testimonials-text>
                   <p>
@@ -848,124 +848,416 @@
         - #BLOG
       -->
 
-      <article class="blog" data-page="blog">
+<!--
+  - #BLOG
+-->
 
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
+<article class="blog" data-page="blog">
 
-        <section class="blog-posts">
+  <header>
+    <h2 class="h2 article-title">Blog</h2>
+    <p class="blog-subtitle">Insights, experiences, and thoughts on development</p>
+  </header>
 
-          <ul class="blog-posts-list">
+  <section class="blog-posts">
 
-            <!-- Post 1 -->
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-coding-deutschland.webp"
-                    alt="How I Plan to Move to Germany as a Developer" loading="lazy">
-                </figure>
+    <ul class="blog-posts-list">
 
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Career</p>
-                    <span class="dot"></span>
-                    <time datetime="2025-06-18">June 18, 2025</time>
-                  </div>
+      <!-- Featured Post -->
+      <li class="blog-post-item featured-post">
+        <a href="#" data-blog-item>
+          <figure class="blog-banner-box">
+            <div class="blog-badge featured-badge">Featured</div>
+            <img src="./assets/images/blog-coding-deutschland.webp"
+              alt="How I Plan to Move to Germany as a Developer" loading="lazy" data-blog-img>
+            <div class="blog-overlay">
+              <ion-icon name="arrow-forward-outline" class="read-more-icon"></ion-icon>
+            </div>
+          </figure>
 
-                  <h3 class="h3 blog-item-title">How I Plan to Move to Germany as a Developer</h3>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category career">Career</span>
+              <span class="blog-date">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time datetime="2025-06-18" data-blog-date>June 18, 2025</time>
+              </span>
+              <span class="read-time">
+                <ion-icon name="time-outline"></ion-icon>
+                5 min read
+              </span>
+            </div>
 
-                  <p class="blog-text">
-                    In this blog post, I share my preparation for job hunting and relocation to Germany as a Full Stack
-                    / Flutter developer from Tunisia.
-                  </p>
-                </div>
+            <h3 class="h3 blog-item-title" data-blog-title>How I Plan to Move to Germany as a Developer</h3>
+
+            <p class="blog-text" data-blog-excerpt>
+              In this blog post, I share my preparation for job hunting and relocation to Germany as a Full Stack
+              / Flutter developer from Tunisia.
+            </p>
+
+            <div class="blog-footer">
+              <div class="author-info">
+                <img src="./assets/images/my-avatar.png" alt="Makram Ben Rhouma" class="author-avatar">
+                <span class="author-name">Makram Ben Rhouma</span>
+              </div>
+              <span class="read-more">Read More</span>
+            </div>
+
+            <!-- Hidden full content for modal -->
+            <div class="blog-full-content" style="display: none;" data-blog-content>
+              <p>Moving to Germany as a developer has been a dream of mine for quite some time. As a Full Stack and Flutter developer from Tunisia, I've been strategically preparing for this transition over the past year.</p>
+              
+              <h4>Why Germany?</h4>
+              <p>Germany offers incredible opportunities for tech professionals, with a thriving startup ecosystem, excellent work-life balance, and strong engineering culture. The country's focus on innovation and digital transformation aligns perfectly with my career goals.</p>
+              
+              <h4>My Preparation Strategy</h4>
+              <ul>
+                <li><strong>Language Learning:</strong> Currently at B1 level in German, working towards B2</li>
+                <li><strong>Skill Enhancement:</strong> Focusing on Angular, Spring Boot, and Flutter</li>
+                <li><strong>Portfolio Development:</strong> Building projects that showcase real-world applications</li>
+                <li><strong>Networking:</strong> Connecting with German tech communities and professionals</li>
+              </ul>
+              
+              <h4>Technical Skills Focus</h4>
+              <p>I've been concentrating on technologies that are in high demand in the German market:</p>
+              <ul>
+                <li>Frontend: Angular 17+, TypeScript, SCSS</li>
+                <li>Backend: Java Spring Boot, REST APIs</li>
+                <li>Mobile: Flutter with Firebase integration</li>
+                <li>UI/UX: Figma for modern design systems</li>
+              </ul>
+              
+              <p>The journey isn't easy, but I'm committed to making this transition successful. Stay tuned for updates on my progress!</p>
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <!-- Post 2 -->
+      <li class="blog-post-item">
+        <a href="#" data-blog-item>
+          <figure class="blog-banner-box">
+            <div class="blog-badge trending-badge">Trending</div>
+            <img src="./assets/images/blog-figma-vs-xd.jpg"
+              alt="Figma vs Adobe XD: What I Actually Use in My Projects" loading="lazy" data-blog-img>
+            <div class="blog-overlay">
+              <ion-icon name="arrow-forward-outline" class="read-more-icon"></ion-icon>
+            </div>
+          </figure>
+
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category uiux">UI/UX</span>
+              <span class="blog-date">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time datetime="2025-05-02" data-blog-date>May 2, 2025</time>
+              </span>
+              <span class="read-time">
+                <ion-icon name="time-outline"></ion-icon>
+                3 min read
+              </span>
+            </div>
+
+            <h3 class="h3 blog-item-title" data-blog-title>Figma vs Adobe XD: What I Actually Use</h3>
+
+            <p class="blog-text" data-blog-excerpt>
+              A real-world comparison between Figma and Adobe XD from my design workflow across mobile and web
+              apps.
+            </p>
+
+            <div class="blog-footer">
+              <div class="author-info">
+                <img src="./assets/images/my-avatar.png" alt="Makram Ben Rhouma" class="author-avatar">
+                <span class="author-name">Makram Ben Rhouma</span>
+              </div>
+              <span class="read-more">Read More</span>
+            </div>
+
+            <!-- Hidden full content for modal -->
+            <div class="blog-full-content" style="display: none;" data-blog-content>
+              <p>As a UI/UX designer working on both web and mobile projects, I've extensively used both Figma and Adobe XD. Here's my honest comparison based on real project experience.</p>
+              
+              <h4>Figma: My Go-To Choice</h4>
+              <p>Figma has become my primary design tool for several reasons:</p>
+              <ul>
+                <li><strong>Collaboration:</strong> Real-time collaboration is seamless</li>
+                <li><strong>Components:</strong> Advanced component system with variants</li>
+                <li><strong>Plugins:</strong> Extensive plugin ecosystem</li>
+                <li><strong>Web-based:</strong> Works on any platform without installation</li>
+              </ul>
+              
+              <h4>Adobe XD: Still Relevant</h4>
+              <p>XD still has its strengths:</p>
+              <ul>
+                <li><strong>Performance:</strong> Faster with large files</li>
+                <li><strong>Adobe Integration:</strong> Great with other Adobe products</li>
+                <li><strong>Voice Prototyping:</strong> Unique voice interaction features</li>
+              </ul>
+              
+              <h4>My Workflow</h4>
+              <p>For projects like Beekids Mobile and Beehive Lodge, I use Figma for:</p>
+              <ul>
+                <li>Initial wireframing and user flows</li>
+                <li>High-fidelity mockups</li>
+                <li>Design system creation</li>
+                <li>Developer handoff</li>
+              </ul>
+              
+              <p><strong>Verdict:</strong> Figma wins for team collaboration and modern design workflows, but XD remains solid for solo projects.</p>
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <!-- Post 3 -->
+      <li class="blog-post-item">
+        <a href="#" data-blog-item>
+          <figure class="blog-banner-box">
+            <div class="blog-badge new-badge">New</div>
+            <img src="./assets/images/blog-flutter-performance.jpg.jpg"
+              alt="Flutter Performance Tips I Learned Building Real Apps" loading="lazy" data-blog-img>
+            <div class="blog-overlay">
+              <ion-icon name="arrow-forward-outline" class="read-more-icon"></ion-icon>
+            </div>
+          </figure>
+
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category mobile">Mobile</span>
+              <span class="blog-date">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time datetime="2025-04-10" data-blog-date>April 10, 2025</time>
+              </span>
+              <span class="read-time">
+                <ion-icon name="time-outline"></ion-icon>
+                4 min read
+              </span>
+            </div>
+
+            <h3 class="h3 blog-item-title" data-blog-title>Flutter Performance Tips I Learned</h3>
+
+            <p class="blog-text" data-blog-excerpt>
+              Here's what actually improved the performance of my Flutter apps like Beekids Mobile and StockHive.
+            </p>
+
+            <div class="blog-footer">
+              <div class="author-info">
+                <img src="./assets/images/my-avatar.png" alt="Makram Ben Rhouma" class="author-avatar">
+                <span class="author-name">Makram Ben Rhouma</span>
+              </div>
+              <span class="read-more">Read More</span>
+            </div>
+
+            <!-- Hidden full content for modal -->
+            <div class="blog-full-content" style="display: none;" data-blog-content>
+              <p>Building real-world Flutter apps like Beekids Mobile and StockHive taught me valuable performance lessons. Here are the optimizations that made the biggest impact.</p>
+              
+              <h4>1. Widget Optimization</h4>
+              <ul>
+                <li><strong>Use const constructors:</strong> Prevents unnecessary rebuilds</li>
+                <li><strong>ListView.builder:</strong> For large lists, always use builder pattern</li>
+                <li><strong>RepaintBoundary:</strong> Isolate expensive widgets</li>
+              </ul>
+              
+              <h4>2. State Management</h4>
+              <p>Proper state management was crucial for Beekids Mobile:</p>
+              <ul>
+                <li><strong>Provider pattern:</strong> Used for global state</li>
+                <li><strong>Local state:</strong> Kept widget-specific state local</li>
+                <li><strong>Stream builders:</strong> For real-time chat features</li>
+              </ul>
+              
+              <h4>3. Image Optimization</h4>
+              <ul>
+                <li><strong>Cached network images:</strong> Reduced loading times</li>
+                <li><strong>Image compression:</strong> Optimized file sizes</li>
+                <li><strong>Lazy loading:</strong> Load images only when needed</li>
+              </ul>
+              
+              <h4>4. Firebase Integration</h4>
+              <p>For real-time features in Beekids:</p>
+              <ul>
+                <li><strong>Firestore pagination:</strong> Load data in chunks</li>
+                <li><strong>Offline persistence:</strong> Better user experience</li>
+                <li><strong>Cloud Functions:</strong> Offload heavy processing</li>
+              </ul>
+              
+              <p>These optimizations reduced app startup time by 40% and improved scroll performance significantly.</p>
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <!-- Post 4 -->
+      <li class="blog-post-item">
+        <a href="#" data-blog-item>
+          <figure class="blog-banner-box">
+            <div class="blog-badge tips-badge">Tips</div>
+            <img src="./assets/images/blog-cv-germany.png" alt="Building a German-Style Developer Resume"
+              loading="lazy" data-blog-img>
+            <div class="blog-overlay">
+              <ion-icon name="arrow-forward-outline" class="read-more-icon"></ion-icon>
+            </div>
+          </figure>
+
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category jobtips">Job Tips</span>
+              <span class="blog-date">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time datetime="2025-06-01" data-blog-date>June 1, 2025</time>
+              </span>
+              <span class="read-time">
+                <ion-icon name="time-outline"></ion-icon>
+                6 min read
+              </span>
+            </div>
+
+            <h3 class="h3 blog-item-title" data-blog-title>Building a German-Style Developer Resume</h3>
+
+            <p class="blog-text" data-blog-excerpt>
+              What I learned after testing my CV on ResumeMaker & ChatGPT to apply to jobs in Germany as a
+              polyvalent profile.
+            </p>
+
+            <div class="blog-footer">
+              <div class="author-info">
+                <img src="./assets/images/my-avatar.png" alt="Makram Ben Rhouma" class="author-avatar">
+                <span class="author-name">Makram Ben Rhouma</span>
+              </div>
+              <span class="read-more">Read More</span>
+            </div>
+
+            <!-- Hidden full content for modal -->
+            <div class="blog-full-content" style="display: none;" data-blog-content>
+              <p>Creating a resume for the German job market requires understanding cultural expectations and technical requirements. Here's what I learned through research and AI assistance.</p>
+              
+              <h4>German Resume Essentials</h4>
+              <ul>
+                <li><strong>Professional Photo:</strong> Include a high-quality headshot</li>
+                <li><strong>Personal Details:</strong> More detailed than US resumes</li>
+                <li><strong>Chronological Order:</strong> Most recent experience first</li>
+                <li><strong>Length:</strong> 2-3 pages is acceptable</li>
+              </ul>
+              
+              <h4>Technical Skills Section</h4>
+              <p>For developer roles, be specific about:</p>
+              <ul>
+                <li><strong>Programming Languages:</strong> Years of experience with each</li>
+                <li><strong>Frameworks:</strong> Version numbers and project context</li>
+                <li><strong>Tools & Technologies:</strong> Development environment preferences</li>
+                <li><strong>Certifications:</strong> Include completion dates</li>
+              </ul>
+              
+              <h4>Project Descriptions</h4>
+              <p>German employers value detailed project information:</p>
+              <ul>
+                <li><strong>Technology Stack:</strong> Complete list of technologies used</li>
+                <li><strong>Team Size:</strong> Your role in team projects</li>
+                <li><strong>Results:</strong> Quantifiable achievements</li>
+                <li><strong>Duration:</strong> Project timeline</li>
+              </ul>
+                            <h4>Language Skills</h4>
+              <p>Use the European framework:</p>
+              <ul>
+                <li><strong>German:</strong> B1 (learning towards B2)</li>
+                <li><strong>English:</strong> C1 (professional working proficiency)</li>
+                <li><strong>French:</strong> B2 (conversational)</li>
+                <li><strong>Arabic:</strong> Native speaker</li>
+              </ul>
+              
+              <h4>Cover Letter Tips</h4>
+              <p>The German cover letter (Anschreiben) is crucial:</p>
+              <ul>
+                <li><strong>Formal Structure:</strong> Follow traditional business letter format</li>
+                <li><strong>Company Research:</strong> Show knowledge of the company</li>
+                <li><strong>Motivation:</strong> Explain why you want to work in Germany</li>
+                <li><strong>Value Proposition:</strong> What you bring to the role</li>
+              </ul>
+              
+              <h4>AI Tools I Used</h4>
+              <ul>
+                <li><strong>ChatGPT:</strong> Resume structure and content optimization</li>
+                <li><strong>ResumeMaker:</strong> ATS-friendly formatting</li>
+                <li><strong>Grammarly:</strong> Language polishing</li>
+                <li><strong>LinkedIn:</strong> Networking and company research</li>
+              </ul>
+              
+              <p><strong>Key Takeaway:</strong> German employers value thoroughness and attention to detail. Invest time in creating a comprehensive, well-structured resume that tells your professional story clearly.</p>
+            </div>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+
+  </section>
+
+  <!-- Blog Modal -->
+  <div class="blog-modal-container" data-blog-modal-container>
+    <div class="overlay" data-blog-overlay></div>
+
+    <section class="blog-modal">
+      <button class="modal-close-btn" data-blog-modal-close-btn>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="blog-modal-img-wrapper">
+        <figure class="blog-modal-avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Makram Ben Rhouma" width="80" data-blog-modal-avatar>
+        </figure>
+
+        <img src="./assets/images/icon-quote.svg" alt="quote icon">
+      </div>
+
+      <div class="blog-modal-content">
+        <div class="blog-modal-header">
+          <h4 class="h3 blog-modal-title" data-blog-modal-title>Blog Title</h4>
+          
+          <div class="blog-modal-meta">
+            <div class="blog-modal-author">
+              <span class="author-name">Makram Ben Rhouma</span>
+              <span class="author-title">Full Stack & Mobile Developer</span>
+            </div>
+            <time datetime="2025-06-20" data-blog-modal-date>20 June, 2025</time>
+          </div>
+        </div>
+
+        <div class="blog-modal-image">
+          <img src="" alt="" data-blog-modal-img>
+        </div>
+
+        <div class="blog-modal-text" data-blog-modal-text>
+          <p>Blog content will be loaded here...</p>
+        </div>
+
+        <div class="blog-modal-footer">
+          <div class="blog-modal-tags">
+            <span class="modal-tag" data-blog-modal-category>Category</span>
+          </div>
+          
+          <div class="blog-modal-share">
+            <span class="share-text">Share this post:</span>
+            <div class="share-buttons">
+              <a href="#" class="share-btn linkedin" data-share-linkedin>
+                <ion-icon name="logo-linkedin"></ion-icon>
               </a>
-            </li>
-
-            <!-- Post 2 -->
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-figma-vs-xd.jpg"
-                    alt="Figma vs Adobe XD: What I Actually Use in My Projects" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">UI/UX</p>
-                    <span class="dot"></span>
-                    <time datetime="2025-05-02">May 2, 2025</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Figma vs Adobe XD: What I Actually Use</h3>
-
-                  <p class="blog-text">
-                    A real-world comparison between Figma and Adobe XD from my design workflow across mobile and web
-                    apps.
-                  </p>
-                </div>
+              <a href="#" class="share-btn twitter" data-share-twitter>
+                <ion-icon name="logo-twitter"></ion-icon>
               </a>
-            </li>
-
-            <!-- Post 3 -->
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-flutter-performance.jpg.jpg"
-                    alt="Flutter Performance Tips I Learned Building Real Apps" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Mobile</p>
-                    <span class="dot"></span>
-                    <time datetime="2025-04-10">April 10, 2025</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Flutter Performance Tips I Learned</h3>
-
-                  <p class="blog-text">
-                    Here's what actually improved the performance of my Flutter apps like Beekids Mobile and StockHive.
-                  </p>
-                </div>
+              <a href="#" class="share-btn facebook" data-share-facebook>
+                <ion-icon name="logo-facebook"></ion-icon>
               </a>
-            </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-            <!-- Post 4 -->
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-cv-germany.png" alt="Building a German-Style Developer Resume"
-                    loading="lazy">
-                </figure>
+</article>
 
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Job Tips</p>
-                    <span class="dot"></span>
-                    <time datetime="2025-06-01">June 1, 2025</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Building a German-Style Developer Resume</h3>
-
-                  <p class="blog-text">
-                    What I learned after testing my CV on ResumeMaker & ChatGPT to apply to jobs in Germany as a
-                    polyvalent profile.
-                  </p>
-                </div>
-              </a>
-            </li>
-
-          </ul>
-
-
-        </section>
-
-      </article>
-
-
-
+            
 
 
       <!--
